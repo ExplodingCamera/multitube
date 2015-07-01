@@ -1,0 +1,26 @@
+.videos {
+  margin-top: 9%;
+}
+body {
+  background-color: black;
+}
+.main {
+  margin-top: 50%
+}
+.footer1 {
+  position: fixed;
+  bottom: 1%;
+  left: 0;
+  right: 0;
+}
+.icon {
+  color: white;
+  width: 1%
+}
+.icon:hover {
+  color: lightgrey;
+  left: 5;
+}
+.nav {
+  margin-top: 0.5%;
+}

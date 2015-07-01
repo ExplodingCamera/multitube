@@ -1,0 +1,7 @@
+npm-debug.log
+node_modules
+.idea/*
+*.iml
+*.sublime-*
+.DS_Store
+public/fonts/*
