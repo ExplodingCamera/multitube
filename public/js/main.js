@@ -32,6 +32,10 @@ $(function(){
       player1.playVideo();
       player2.playVideo();
       firstStart = false;
+      setTimeout(function(){
+        player1.seekTo(startSeconds);
+        player2.seekTo(startSeconds);
+      }, 500);
     }, 1000);
   }, 2000);
   $(window).resize(rezise);
