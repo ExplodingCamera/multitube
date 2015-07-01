@@ -1,0 +1,29 @@
+{{!< default}}
+<script>
+var startSeconds = "{{startSeconds}}"
+var video1 = "{{video1}}"
+var video2 = "{{video2}}"
+</script>
+
+  <script src="/js/main.js"></script>
+  <nav class="ink-navigation ink-flex push-center nav">
+      <ul class="pagination white">
+          <li class="pause"><a href="#"><i class="fa fa-pause"></i>    Pause</a></li>
+          <li class="play active"><a href="#"><i class="fa fa-youtube-play"></i>   Play</a></li>
+          <li class="restart"><a href="#"><i class="fa fa-refresh"></i>    Restart</a></li>
+          <li class="mute"><a href="#"><i class="fa fa-volume-off"></i>    Mute</a></li>
+      </ul>
+  </nav>
+  <div class="ink-flex videos">
+    <div class="all-50">
+      <div id="player1"></div>
+    </div>
+    <div class="all-50">
+      <div id="player2"></div>
+    </div>
+  </div>
+<div class="ink-flex push-center footer1">
+  <a href="http://twitter.com/explodingcamera"><i class="icon fa fa-twitter"></i></a>&nbsp
+  <a href="http://youtube.com/explodingkamera"><i class="icon fa fa-youtube"></i></a>&nbsp
+  <a href="http://github.com/explodingcamera"><i class="icon fa fa-github"></i></a>
+</div>

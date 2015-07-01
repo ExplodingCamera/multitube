@@ -9,82 +9,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="HenryMaxxx">
-        <meta name="keywords" content="">
-        <meta name="description" content="">
+        <meta name="keywords" content={{keywords}}>
+        <meta name="description" content={{description}}>
 
         <link rel='stylesheet' href="/css/font-awesome.min.css">
         <link rel='stylesheet' href="/css/ink.css">
         <link rel='stylesheet' href="/css/ink-flex.min.css">
         <link rel='stylesheet' href="/css/style.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="/js/main.js"></script>
         <script src="/js/ink-all.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
     </head>
     <body>
-        <!--[if lt IE 11]>
-        Da soll iwas kommen ka was
-        <![endif]-->
-        <nav class="ink-navigation ink-flex push-center nav">
-            <ul class="pagination white">
-                <li class="pause"><a href="#"><i class="fa fa-pause"></i>    Pause</a></li>
-                <li class="play active"><a href="#"><i class="fa fa-youtube-play"></i>   Play</a></li>
-                <li class="restart"><a href="#"><i class="fa fa-refresh"></i>    Restart</a></li>
-                <li class="mute"><a href="#"><i class="fa fa-volume-off"></i>    Mute</a></li>
-            </ul>
-        </nav>
-        <div class="ink-flex videos">
-          <div class="all-50">
-            <div id="player1"></div>
-          </div>
-          <div class="all-50">
-            <div id="player2"></div>
-          </div>
-        </div>
-      <script>
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      var player1, player2;
-      function onYouTubeIframeAPIReady() {
-        player1 = new YT.Player('player1', {
-          height: '390',
-          width: '640',
-          videoId: '{{video1}}',
-          playerVars: {
-            'color': 'white',
-            'controls': 1,
-            'disablekb': 1,
-            'fs': 0,
-            'theme': 'light',
-            'start': {{startSeconds}},
-          }
-        });
-        player2 = new YT.Player('player2', {
-          height: '390',
-          width: '640',
-          videoId: '{{video2}}',
-          playerVars: {
-            'color': 'white',
-            'controls': 1,
-            'disablekb': 1,
-            'fs': 0,
-            'theme': 'light',
-            'start': {{startSeconds}},
-          },
-          events: {
-            'onReady': onPlayerReady,
-          }
-        });
-      }
-      </script>
-      <div class="ink-flex push-center footer1">
-        <a href="http://twitter.com/explodingcamera"><i class="icon fa fa-twitter"></i></a>&nbsp
-        <a href="http://youtube.com/explodingkamera"><i class="icon fa fa-youtube"></i></a>&nbsp
-        <a href="http://github.com/explodingcamera"><i class="icon fa fa-github"></i></a>
-      </div>
+      {{{body}}}
+      {{> footer}}
     </body>
 </html>

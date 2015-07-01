@@ -5,7 +5,7 @@ router.get('/:video1/:video2/', function(req, res, next) {
   if(!req.query.startSeconds){
     req.query.startSeconds = 0;
   }
-  res.render('default', {
+  res.render('video', {
     video1: req.params.video1,
     video2: req.params.video2,
     startSeconds: req.query.startSeconds ,
