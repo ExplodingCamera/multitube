@@ -23,7 +23,6 @@ function onYouTubeIframeAPIReady() {
     },
   });
 }
-var firstStart = true;
 $(function(){
   setTimeout(function(){
     player1.seekTo(startSeconds);
@@ -31,17 +30,13 @@ $(function(){
     setTimeout(function(){
       player1.playVideo();
       player2.playVideo();
-      firstStart = false;
-      setTimeout(function(){
-        player1.seekTo(startSeconds);
-        player2.seekTo(startSeconds);
-      }, 500);
     }, 1000);
   }, 2000);
   $(window).resize(rezise);
   $(function(){
     $('#player1').css({ width: $("#player1").innerWidth() + 'px', height: ($("#player1").innerWidth() * 0.5625) + 'px', "margin-top": ($(window).innerHeight()/2 - $("#player1").innerWidth()/2) });
     $('#player2').css({ width: $("#player2").innerWidth() + 'px', height: ($("#player2").innerWidth() * 0.5625) + 'px', "margin-top": ($(window).innerHeight()/2 - $("#player1").innerWidth()/2) });
+    var firstStart = true;
     $(".play").click(function() {
       if(firstStart){
         player1.seekTo(startSeconds);
@@ -98,4 +93,28 @@ function toggleMute(){
 function rezise(){
     $("#player1").css({ width: ($(window).innerWidth() / 2) + 'px', height: (($(window).innerWidth() / 2) * 0.5625) + 'px', "margin-top": ($(window).innerHeight()/2 - $(window).innerWidth()/4) });
     $("#player2").css({ width: ($(window).innerWidth() / 2) + 'px', height: (($(window).innerWidth() / 2) * 0.5625) + 'px', "margin-top": ($(window).innerHeight()/2 - $(window).innerWidth()/4) });
+}
+
+var refreshInterval1 = window.setInterval(restart, 1000);
+
+function restart() {
+  console.log(player2.getVideoLoadedFraction());
+  if(player2.getVideoLoadedFraction() != 0){
+    player1.seekTo(startSeconds);
+    player2.seekTo(startSeconds);
+    setTimeout(function(){
+      player2.playVideo();
+      player1.playVideo();
+      firstStart = false;
+    }, 100);
+    clearInterval(refreshInterval1);
+    console.log("Video 2 has loaded...")
+  }
+  else {
+    console.log("Video 2 is loading...")
+    player1.pauseVideo();
+    player2.pauseVideo();
+    player1.seekTo(startSeconds);
+    player2.seekTo(startSeconds);
+  }
 }
