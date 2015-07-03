@@ -39,15 +39,6 @@ $(function(){
     var firstStart = true;
     $(".play").click(function() {
       if(firstStart){
-        player1.seekTo(startSeconds);
-        player2.seekTo(startSeconds);
-        setTimeout(function(){
-          player1.playVideo();
-          player2.playVideo();
-          firstStart = false;
-        }, 1000);
-      }
-      else if (!firstStart) {
       $(".pause").removeClass("active");
       player1.playVideo();
       player2.playVideo();
@@ -103,18 +94,21 @@ function restart() {
     player1.seekTo(startSeconds);
     player2.seekTo(startSeconds);
     setTimeout(function(){
-      player2.playVideo();
       player1.playVideo();
-      firstStart = false;
-    }, 100);
+      player2.playVideo();
+      player1.unMute();
+      player2.unMute();
+    }, 300);
     clearInterval(refreshInterval1);
     console.log("Video 2 has loaded...")
   }
   else {
     console.log("Video 2 is loading...")
-    player1.pauseVideo();
-    player2.pauseVideo();
     player1.seekTo(startSeconds);
     player2.seekTo(startSeconds);
+    player1.pauseVideo();
+    player2.pauseVideo();
+    player1.mute();
+    player2.mute();
   }
 }
