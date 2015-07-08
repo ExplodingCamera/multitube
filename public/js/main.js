@@ -63,6 +63,14 @@ $(function(){
       player2.playVideo();
       $(".play").addClass("active");
     });
+    $(".rewind").click(function(){
+      player1.pauseVideo();
+      player2.pauseVideo();
+      player1.seekTo(player1.getCurrentTime() - 10);
+      player2.seekTo(player1.getCurrentTime() - 10);
+      player1.playVideo();
+      player2.playVideo();
+    });
     $(".mute").click(function(){
       toggleMute();
     });
