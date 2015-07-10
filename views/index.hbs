@@ -1,21 +1,41 @@
 {{!< default}}
 <center>
-  <br><br><br><br><br><br>
-  <h1 style="color:white;">Usage:</h1>
-  <p style="color:white;">
-    <code>multitube.cf/<b>VideoID1</b>/<b>VideoID2</b>/</code><br>
-    You can also use ?startSeconds= at the end if you<br> want the Video to start at a specific time.
-  </p>
-  <br><br><br><br><br><br>
-  <h1 style="color:white;">Info:</h1>
-  <p style="color:white;">
-    This Website is still "Work in progress".<br>
-    If I have some spare time i'll add a propper<br>
-    Homepage
-  </p>
+  <h1 class="header">Multitube.cf</h1>
+    <form class="ink-form ytform">
+      <div class=" gutters">
+          <div class="control-group all-40 tiny-90 small-90 push-center">
+              <div class="control append-symbol">
+                  <span>
+                      <input class="vid1" type="text" name="youtubeid" placeholder="Video ID 1">
+                      <i class="fa fa-youtube"></i>
+                  </span>
+              </div>
+          </div>
+          <div class="control-group all-40 small-90 tiny-90 push-center">
+              <div class="control append-symbol">
+                  <span>
+                      <input class="vid2" type="text" name="youtubeid" placeholder="Video ID 2" data-rules="required|length[]">
+                      <i class="fa fa-youtube"></i>
+                  </span>
+              </div>
+          </div>
+      </div>
+    </form>
+    <button class="ink-button">View the Videos synced</button>
 </center>
-<nav class="ink-navigation ink-flex push-center push-bottom footer">
-    <ul class="pagination white footer">
-        <li class="footer pause"><a href="https://explodingcamera.com">made by @ExplodingCamera</a></li>
-    </ul>
-</nav>
+<script>
+var vid1 = 0;
+var vid2 = 0;
+$(function(){
+  $(".ink-button").click(function(){
+    vid1 = $(".vid1").val();
+    vid2 = $(".vid2").val();
+    if(vid1.length == 11 && vid2.length == 11){
+      window.open("/" + vid1 + "/" + vid2 + "/" ,"_self");
+    }
+    else if(vid1.length !== 11 && vid2.length !== 11){
+      swal({   title: "Error...!",   text: "Please enter a Valid YouTube Id! <br><br><br> <span style=\"color:#F8BB86, font-size=10\">How to find a YouTube ID:</span><br><img src='/img/youtube-faq.png'/>",   html: true });
+    }
+  });
+});
+</script>
